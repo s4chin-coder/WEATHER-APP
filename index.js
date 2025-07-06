@@ -11,7 +11,7 @@ const userInfoContainer = document.querySelector(".user-info-container");
 // initial variable need ??
 
 let currentTab = userTab;
-const API_KEY = "5e3ce642340e393ae9a38f479a1b935d";
+const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 currentTab.classList.add("current-tab");
 getFromSessionStorage();
 
