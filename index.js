@@ -8,7 +8,6 @@ const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
 
-// initial variable need ??
 
 let currentTab = userTab;
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
@@ -101,9 +100,10 @@ function getLocation(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition);
     }
-    else{
-        //HW - show alert not avai
-    }
+   else {
+    alert("Geolocation is not supported by your browser.");
+}
+
 }
 
 function showPosition(position){
@@ -145,8 +145,8 @@ async function fetchSearchWeatherInfo(city) {
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
     }
-    catch(err){
-        //HW
-
-    }
+    catch (err) {
+    loadingScreen.classList.remove("active");
+    alert("Failed to fetch weather information. Please try again.");
+}
 }
